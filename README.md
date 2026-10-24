@@ -1,16 +1,19 @@
 <div align="center">
-# Automotive BMS — Model-Based Design & Hardware-in-the-Loop
- 
-**SOC Estimation Using a Neural Network, Stateflow Safety Supervisor, and CAN Bus HIL Test Bench**
- 
+
+<h1><b>Automotive BMS — Model-Based Design & Real-Time HIL Validation</b></h1>
+
+<h3><b>ISO 26262-Aligned V-Cycle: Neural Network SOC Estimation · MIL/SIL/PIL Verification · Distributed CAN HIL Bench</b></h3>
+
 *Embedded Battery Management System · MATLAB/Simulink · STM32L476RG · ESP32 · CAN 2.0B · ISO 26262-aligned approach*
- 
+
+<br>
+
 [![MATLAB](https://img.shields.io/badge/MATLAB-Simulink%20%7C%20Stateflow-0076A8?logo=mathworks&logoColor=white)](https://www.mathworks.com/)
 [![STM32](https://img.shields.io/badge/STM32-NUCLEO--L476RG-03234B?logo=stmicroelectronics&logoColor=white)](https://www.st.com/)
 [![ESP32](https://img.shields.io/badge/ESP32-Node32S-E7352C?logo=espressif&logoColor=white)](https://www.espressif.com/)
 [![CAN](https://img.shields.io/badge/CAN-2.0B%20%40%20500%20kbit%2Fs-444444)](https://en.wikipedia.org/wiki/CAN_bus)
 [![ISO 26262](https://img.shields.io/badge/ISO%2026262-aligned-2E7D32)](https://www.iso.org/standard/68383.html)
- 
+
 </div>
 
 ---
