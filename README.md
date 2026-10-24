@@ -141,6 +141,9 @@ Convention: `I > 0` during discharge, `I < 0` during regenerative braking. The o
 <p align="center">
   <img src="docs/image/battery.png" alt="Plant_Battery subsystem: cell_physics function and integrators" width="85%">
 </p>
+<p align="center">
+  <img src="docs/image/SIL1.png" alt="Cell voltage, current, and temperature profiles over the 1800 s WLTP driving cycle" width="85%">
+</p>
 The `cell_physics` block computes the derivatives (`V1_dot`, `T_dot`, `soc_dot`); the integrators close the state loop. The relay acts as a switch on the requested current.
  
 ## 1.3 Neural Network-Based SOC Estimation
