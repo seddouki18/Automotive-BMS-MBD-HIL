@@ -12,43 +12,48 @@
 [![ISO 26262](https://img.shields.io/badge/ISO%2026262-aligned-2E7D32)](https://www.iso.org/standard/68383.html)
  
 </div>
+
 ---
  
 ## 🎬 Démonstrations vidéo
 
-Découvrez les principales étapes de validation du système BMS, depuis l'exécution du contrôleur sur STM32 jusqu'aux essais expérimentaux sur le banc Hardware-in-the-Loop (HIL).
+Découvrez les deux principales démonstrations du système Automotive BMS : la validation sur processeur STM32 (**PIL**) et les essais en temps réel sur le banc **Hardware-in-the-Loop (HIL)**.
 
 ### 🎥 Vidéo 1 — Banc HIL en fonctionnement
 
 <p align="center">
-  <a href="https://github.com/seddouki18/Automotive-BMS-MBD-HIL/raw/main/docs/video/video2.mp4">
-    <img src="docs/image/IMG_1358.png" alt="Banc HIL réel : ESP32, STM32, CAN, relais, dashboard et Live Expressions" width="650">
+  <a href="https://github.com/user-attachments/assets/4895109e-6aa9-4a1c-a395-de6a9b9222aa">
+    <img src="docs/image/IMG_1358.png" alt="Banc HIL : ESP32, STM32, relais et supervision sur deux ordinateurs" width="650">
   </a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/seddouki18/Automotive-BMS-MBD-HIL/raw/main/docs/video/video2.mp4"><strong>▶ Regarder la démonstration HIL</strong></a>
-</p>
+**Vidéo HIL (lecture intégrée si prise en charge par GitHub) :**
 
-Le banc intègre un **ESP32 Node32S**, une **STM32 NUCLEO-L476RG**, deux transceivers **SN65HVD230**, un relais de sécurité et un dashboard Python. La démonstration illustre l'émulation de la cellule Li-ion, la communication CAN à 500 kbit/s et la surveillance des grandeurs en temps réel.
 
-Les scénarios expérimentaux sont détaillés en Partie 2 : fonctionnement nominal, surtension (OVP), sous-tension (UVP), surchauffe (OTP), surintensité (OCP) et perte de communication CAN.
+[▶ Regarder la démonstration HIL](https://github.com/user-attachments/assets/4895109e-6aa9-4a1c-a395-de6a9b9222aa)
+
+Le banc expérimental associe un **ESP32 Node32S**, une **STM32 NUCLEO-L476RG**, deux transceivers **SN65HVD230**, un relais de sécurité et un dashboard Python. La démonstration montre l'émulation de la cellule Li-ion, la communication **CAN à 500 kbit/s** et la supervision des grandeurs en temps réel.
+
+Les essais de fonctionnement nominal, surtension (OVP), sous-tension (UVP), surchauffe (OTP), surintensité (OCP) et perte de communication CAN sont détaillés en Partie 2.
 
 ### 🎥 Vidéo 2 — Validation PIL Simulink ↔ STM32
 
 <p align="center">
-  <a href="https://github.com/seddouki18/Automotive-BMS-MBD-HIL/raw/main/docs/video/video3.mp4">
-    <img src="docs/image/PIL_FINAL.png" alt="Exécution du contrôleur BMS en mode PIL et couverture du code dans Simulink" width="650">
+  <a href="https://github.com/user-attachments/assets/b72ff9d8-cc0f-4915-b42c-9496ed0b240d">
+    <img src="docs/image/PIL_FINAL.png" alt="Validation Processor-in-the-Loop sur STM32 avec Simulink Coverage" width="650">
   </a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/seddouki18/Automotive-BMS-MBD-HIL/raw/main/docs/video/video3.mp4"><strong>▶ Regarder la validation PIL</strong></a>
-</p>
+**Vidéo PIL (lecture intégrée si prise en charge par GitHub) :**
 
-Cette démonstration présente l'exécution du **code C généré par Embedded Coder** sur la cible STM32L476RG pendant que le modèle de batterie reste sous Simulink. Elle illustre la validation Processor-in-the-Loop du contrôleur, l'estimation du SOC et l'analyse de couverture associée.
+[▶ Regarder la validation PIL](https://github.com/user-attachments/assets/b72ff9d8-cc0f-4915-b42c-9496ed0b240d)
+
+Cette démonstration présente l'exécution du **code C généré par Embedded Coder** sur la **STM32L476RG** pendant que le modèle de batterie est simulé sous MATLAB/Simulink. Elle permet d'observer la validation Processor-in-the-Loop, l'estimation du SOC et la couverture du code associée.
+
+> Les deux images sont conservées comme aperçus cliquables, et les deux URL des vidéos restent visibles pour permettre une éventuelle lecture intégrée sur GitHub.
 
 ---
+
 
 ## Résumé du projet
  
@@ -101,15 +106,7 @@ Ce dépôt contient la réalisation complète d’un **calculateur BMS automobil
 # Partie 1 — Model-Based Design : du modèle Simulink au PIL
  
 ## 1.1 Démarche de validation
- 
-```mermaid
-flowchart LR
-    A["Modèle physique<br/>Thévenin 1-RC + thermique"] --> B["MIL<br/>Simulink"]
-    B --> C["Génération de code C<br/>Embedded Coder"]
-    C --> D["SIL<br/>code compilé sur hôte"]
-    D --> E["PIL<br/>STM32L476RG"]
-    E --> F["HIL<br/>ESP32 ⇄ CAN ⇄ STM32"]
-```
+
  
 Le modèle de niveau supérieur `BMS_controller.slx` sépare nettement l’**environnement** (`Plant_Battery`) du **contrôleur** (`Controller_BMS`). Le relais de sécurité commandé par le contrôleur est ramené dans le plant : lorsqu’il s’ouvre, le courant imposé à la cellule tombe à 0 A. La boucle de sécurité est donc réellement fermée dès la simulation.
  
@@ -292,15 +289,6 @@ La simulation PIL est exécutée avec **Simulink Coverage** activé : le bloc `C
  
 La cellule est sortie de la simulation et émulée en temps réel sur un microcontrôleur dédié. Le contrôleur BMS ne reçoit plus que des trames CAN, exactement comme dans un véhicule.
  
-```mermaid
-flowchart LR
-    PC["PC hôte<br/>• Dashboard Python<br/>• Live Expressions"] <-->|"USB série 115200 bauds"| ESP["ESP32 Node32S<br/>• Émulation Li-ion<br/>• Cycle WLTP<br/>• Injection de défauts"]
-    ESP --> T1["Transceiver CAN n°1<br/>SN65HVD230"]
-    T1 ==>|"Bus CAN différentiel<br/>500 kbit/s"| T2["Transceiver CAN n°2<br/>SN65HVD230"]
-    T2 --> STM["STM32 NUCLEO-L476RG<br/>• Contrôleur BMS<br/>• Inférence ANN<br/>• Stateflow"]
-    STM -->|"PA5"| REL["Module relais + LED<br/>Safe State"]
-    STM -.->|"Débogage SWD"| PC
-```
  
 <p align="center">
   <img src="docs/image/IMG_1358.png" alt="Banc HIL complet : ESP32, NUCLEO-L476RG, bus CAN, relais et supervision sur deux PC" width="85%">
