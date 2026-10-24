@@ -1,0 +1,3 @@
+../Core/Src/Controller_BMS.c:40:6:Controller_BMS_step	32
+../Core/Src/Controller_BMS.c:280:6:Controller_BMS_initialize	1
+../Core/Src/Controller_BMS.c:287:6:Controller_BMS_terminate	1
