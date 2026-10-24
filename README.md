@@ -167,6 +167,10 @@ The current sensor's offset and noise term `ε` is integrated over time, causing
  
 Training is performed using the Deep Learning Toolbox (`RNA.m`). The weights are then extracted (`extract_weights.m`) as `const float` arrays, and inference is written in pure C (`soc_nn_core.m`): no `malloc`, no data-dependent loops, and thus a constant number of cycles from one execution to the next. A `Rate Limiter` smooths the `soc_est` output.
  
+<p align="center">
+  <img src="docs/image/F2.png" alt="MATLAB neural network training and SOC estimation over the WLTP cycle" width="85%">
+</p>
+
 ## 1.4 Stateflow Safety Supervisor
  
 `Controller_BMS` combines the SOC estimator and a Stateflow finite-state machine that produces `derating`, `fault_code`, and `relay`.
