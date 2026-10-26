@@ -14,13 +14,13 @@
 ## 1. Obtain the sources
 
 ```sh
-git clone --branch fix/can-reception-and-project-docs https://github.com/seddouki18/Automotive-BMS-MBD-HIL.git
+git clone --branch main https://github.com/seddouki18/Automotive-BMS-MBD-HIL.git
 cd Automotive-BMS-MBD-HIL
 python3 tests/test_can_callback.py
 python3 tests/check_docs.py
 ```
 
-The branch name above selects the reviewed changes while the pull request is open. The repository includes large demonstration videos; cloning may take time.
+The repository includes large demonstration videos; cloning may take time.
 
 ## 2. Explore the model
 
