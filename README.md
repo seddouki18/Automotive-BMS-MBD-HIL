@@ -5,7 +5,7 @@
 
 Academic battery-management demonstrator connecting a Simulink controller, neural-network SOC estimation, and a distributed STM32 / ESP32 test bench.
 
-[![Host checks](https://github.com/seddouki18/Automotive-BMS-MBD-HIL/actions/workflows/host-checks.yml/badge.svg?branch=fix%2Fcan-reception-and-project-docs)](https://github.com/seddouki18/Automotive-BMS-MBD-HIL/actions/workflows/host-checks.yml)
+[![Host checks](https://github.com/seddouki18/Automotive-BMS-MBD-HIL/actions/workflows/host-checks.yml/badge.svg?branch=main)](https://github.com/seddouki18/Automotive-BMS-MBD-HIL/actions/workflows/host-checks.yml)
 ![STM32](https://img.shields.io/badge/STM32-L476RG-03234B)
 ![MATLAB](https://img.shields.io/badge/MATLAB-Simulink%20%7C%20Stateflow-0076A8)
 ![CAN](https://img.shields.io/badge/CAN-500%20kbit%2Fs-444444)
