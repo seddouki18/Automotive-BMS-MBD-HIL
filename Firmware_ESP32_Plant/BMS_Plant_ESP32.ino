@@ -45,7 +45,7 @@ static bool twai_bus_init(void) {
 }
 
 static void send_battery_frame(float voltage, float current, float temperature) {
-    twai_message_t frame;
+    twai_message_t frame = {};
     frame.identifier = CAN_ID_PLANT;
     frame.extd = 0;
     frame.data_length_code = 5;
@@ -79,7 +79,7 @@ static void process_serial_commands(void) {
             break;
         case '3':  
             fault_injection = FAULT_UNDERVOLTAGE;
-            Serial.println("[FAULT] Injection UVP -> V = 2.50V");
+            Serial.println("[FAULT] Injection UVP -> V = 2.20V");
             break;
         case '4':  
             fault_injection = FAULT_OVERCURRENT;
