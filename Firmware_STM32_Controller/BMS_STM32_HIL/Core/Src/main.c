@@ -113,8 +113,8 @@ int main(void)
     Error_Handler();
   }
 
-  // 6. État initial : Relais armé (LED Allumée)
-  HAL_GPIO_WritePin(RELAY_SAFETY_GPIO_Port, RELAY_SAFETY_Pin, GPIO_PIN_SET);
+  // Keep the relay open until the controller authorizes operation.
+  HAL_GPIO_WritePin(RELAY_SAFETY_GPIO_Port, RELAY_SAFETY_Pin, GPIO_PIN_RESET);
   /* USER CODE END 2 */
 
   /* Initialize leds - DÉSACTIVÉ pour éviter le reset conflictuel de PA5 */
@@ -233,7 +233,9 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
   if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rxHeader, rxData) == HAL_OK)
   {
-    if (rxHeader.StdId == 0x100)
+    if ((rxHeader.IDE == CAN_ID_STD) &&
+        (rxHeader.RTR == CAN_RTR_DATA) &&
+        (rxHeader.StdId == 0x100) && (rxHeader.DLC == 5))
     {
       // 1. Rafraîchissement du timer Watchdog
       last_can_rx_tick = HAL_GetTick();
@@ -269,18 +271,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 
             dwt_cycles = t_end - t_start;
             execution_time_us = (float)dwt_cycles / 80.0f;
-      // 4. Calcul du pas algorithmique (Stateflow + ANN)
-      Controller_BMS_step();
 
-      // 5. Commande physique du relais selon la décision du modèle
-      if (Controller_BMS_Y.relay == true)
-      {
-        HAL_GPIO_WritePin(RELAY_SAFETY_GPIO_Port, RELAY_SAFETY_Pin, GPIO_PIN_SET);   // Relais Armé (LED LD2 Allumée)
-      }
-      else
-      {
-        HAL_GPIO_WritePin(RELAY_SAFETY_GPIO_Port, RELAY_SAFETY_Pin, GPIO_PIN_RESET); // Safe State (LED LD2 Éteinte)
-      }
     }
   }
 }
