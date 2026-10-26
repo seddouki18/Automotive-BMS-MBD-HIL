@@ -1,0 +1,21 @@
+# Local OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+# New build products (previously tracked files are retained)
+**/Debug/
+**/Release/
+*.o
+*.d
+*.elf
+*.map
+*.list
+# Python
+__pycache__/
+*.py[cod]
+# MATLAB / Simulink caches; preserve source models, weights and reports
+slprj/
+*.slxc
+*.asv
