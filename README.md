@@ -16,6 +16,9 @@
 
 </div>
 
+> **Original project material — all rights reserved.** Reuse requires prior written authorization, subject to applicable law, GitHub's terms, and third-party licenses. [Read the rights and reuse notice](LICENSE).
+
+
 ---
  
 ## 🎬 Video Demonstrations
@@ -106,6 +109,7 @@ The following values summarize the original project evidence; they have not been
 - [Repository Structure](#repository-structure)
 - [Reproducing the Project](#reproducing-the-project)
 - [Limitations and Future Work](#limitations-and-future-work)
+- [Authorship and Use](#authorship-and-use)
 - [Author](#author)
 ---
  
@@ -518,11 +522,15 @@ Automotive-BMS-MBD-HIL/
 
 ## Authorship and Use
 
-This repository presents an academic engineering project for portfolio review. Original contributions remain attributed to their respective authors. Viewing the project does not authorize presenting it as one's own academic work, removing author credits, or submitting it as a personal project.
+**Original project material: all rights reserved.** See the [rights and reuse notice](LICENSE). This project is published for portfolio presentation and technical review; it is **not distributed under the MIT license**.
 
-No general reuse license is granted for the project's original code, models, weights, documentation, images, or videos. For reuse or a technical collaboration, contact the project maintainers to request permission. Third-party components retain their own notices and licenses. Applicable law and GitHub's terms remain unaffected.
+Reuse of the authors' original code, models, weights, reports, documentation, images, or videos in another project requires **prior written authorization from the relevant copyright holder(s)**, except where an existing license, applicable law, or GitHub's terms permits otherwise. Attribution alone does not grant permission to reuse.
 
-**Access limitation:** this notice is an attribution and permissions statement, not a copy-prevention mechanism. Files and history in a public repository remain accessible; implementation privacy requires a separate private-source arrangement.
+Do not remove author credits, claim another author's contributions as your own, or submit this project as work you independently created. Original contributors retain their respective rights. Third-party components, including vendor drivers and CMSIS material, keep their existing licenses and notices; this notice does not relicense them.
+
+For a permission request or technical collaboration, contact [SEDDOUKI Nacereddine (@seddouki18)](https://github.com/seddouki18) and specify the files and intended use.
+
+**Public-repository limitation:** this notice states reuse permissions and authorship expectations; it does not technically prevent downloading or copying. GitHub's platform viewing/forking permissions and applicable legal exceptions remain unaffected.
 
 ## Author
 
